@@ -1,0 +1,45 @@
+create table product_datasets (
+p_code int,
+p_name varchar(25),
+price int,
+stock int,
+category varchar(25)
+);
+create table customer_datasets (
+c_id int,
+c_name varchar(50), 
+c_location varchar(50), 
+c_phoneno int
+);
+create table sales_datasets (
+order_date date, 
+order_no int, 
+c_id int, 
+c_Name varchar(25), 
+s_code int,
+p_name varchar(25), 
+qty int,
+price int
+);
+select * from product_datasets;
+select * from customer_datasets;
+select * from sales_datasets;
+alter table sales_datasets add Sl_No varchar(250);
+select * from sales_datasets;
+alter table sales_datasets modify order_date varchar(250) after Sl_No;
+alter table sales_datasets add Categories varchar(250);
+alter table sales_datasets modify Categories varchar(250) after order_date;
+alter table product_datasets modify stock varchar(25);
+desc product_datasets;
+select * from customer_datasets;
+alter table customer_datasets rename to Customer_Details;
+alter table sales_datasets drop column Sl_No;
+alter table sales_datasets drop column Categories;
+select order_date, order_no, c_id, price, qty from sales_datasets;
+select * from product_datasets where category = "Stationary";
+select distinct category from product_datasets order by category;
+select * from sales_datasets where qty >=2 and price <=500;
+select * from sales_datasets where c_name like '%a%';
+select * from product_datasets order by price desc;
+select order_no, c_name from sales_datasets;
+select * from Customer_Details;
